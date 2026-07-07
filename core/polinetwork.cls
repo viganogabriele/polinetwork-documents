@@ -8,6 +8,7 @@
 %%   \documentclass[legal]{polinetwork}    % for legal documents (privacy, T&C)
 %%   \documentclass[letter]{polinetwork}   % for letters
 %%   \documentclass[report]{polinetwork}   % for reports with title page
+%%   \documentclass[numbered]{polinetwork} % force numbered headings
 %%
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{polinetwork}[2026/04/01 PoliNetwork APS Document Class v1.0]
@@ -28,10 +29,14 @@
 \newif\if@pnletter   \@pnletterfalse
 \newif\if@pnreport   \@pnreportfalse
 \newif\if@pnlegal    \@pnlegalfalse
+\newif\if@pnnumbered \@pnnumberedfalse
+\newif\if@pnunnumbered \@pnunnumberedfalse
 
 \DeclareOption{letter}{\@pnlettertrue}
 \DeclareOption{report}{\@pnreporttrue}
 \DeclareOption{legal}{\@pnlegaltrue}
+\DeclareOption{numbered}{\@pnnumberedtrue}
+\DeclareOption{unnumbered}{\@pnunnumberedtrue}
 
 % Pass all unknown options to article class
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
@@ -48,12 +53,12 @@
 \RequirePackage[
   a4paper,
   top=2.5cm,
-  bottom=2.5cm,
+  bottom=3.0cm,
   left=2.5cm,
   right=2.5cm,
   headheight=1.5cm,
   headsep=0.8cm,
-  footskip=1.5cm
+  footskip=1.45cm
 ]{geometry}
 
 % Font support (XeLaTeX / LuaLaTeX)
@@ -79,6 +84,7 @@
 \RequirePackage{tabularx}
 \RequirePackage{booktabs}
 \RequirePackage{longtable}
+\RequirePackage{array}
 
 % Lists
 \RequirePackage{enumitem}
@@ -92,6 +98,7 @@
   bookmarks=true,
   bookmarksnumbered=false
 ]{hyperref}
+\RequirePackage{bookmark}
 
 % Header/Footer
 \RequirePackage{fancyhdr}
@@ -115,11 +122,6 @@
 \newcommand{\pnPageBackground}{%
   \begin{tikzpicture}[remember picture,overlay]
     \fill[white] (current page.south west) rectangle (current page.north east);
-    \IfFileExists{../assets/site-background-soft.png}{%
-      \node[anchor=center, inner sep=0pt]
-        at (current page.center)
-      {\includegraphics[width=1.08\paperwidth,height=1.04\paperheight]{../assets/site-background-soft.png}};
-    }{}%
   \end{tikzpicture}%
 }
 
@@ -195,8 +197,8 @@
 %% ========================================================================
 
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setstretch{1.25}
+\setlength{\parskip}{6pt plus 1pt minus 1pt}
+\setstretch{1.2}
 % Tolleranza per giustificazione testo (riduce Overfull \hbox)
 \tolerance=1000
 \emergencystretch=3em
@@ -211,30 +213,28 @@
 
 \RequirePackage{titlesec}
 
-% Section: blue bar + Poppins bold
-% Awesome-CV style sections: Primary color, bold, with a horizontal rule below
 \titleformat{\section}
-  {\Large\poppinsfont\bfseries\color{pn-text}}
-  {\thesection\hspace{6pt}}
+  {\Large\poppinsfont\bfseries\color{pn-primary}}
+  {\ifnum\value{secnumdepth}>-1\relax\thesection\hspace{0.65em}\fi}
   {0pt}
- {}[\vspace{-0.55em}{\color{pn-rule}\rule{\textwidth}{0.8pt}}]
+  {}
  
 \titleformat{\subsection}
-  {\large\poppinsfont\bfseries\color{pn-primary}}
-  {\thesubsection\hspace{6pt}}
+  {\large\poppinsfont\fontseries{sb}\selectfont\color{pn-text}}
+  {\ifnum\value{secnumdepth}>0\relax\thesubsection\hspace{0.55em}\fi}
   {0pt}
   {}
 
 \titleformat{\subsubsection}
-  {\normalsize\poppinsfont\bfseries\color{pn-text-secondary}}
-  {\thesubsubsection\hspace{6pt}}
+  {\normalsize\poppinsfont\fontseries{sb}\selectfont\color{pn-text-secondary}}
+  {\ifnum\value{secnumdepth}>1\relax\thesubsubsection\hspace{0.5em}\fi}
   {0pt}
   {}
 
 % Spacing
-\titlespacing*{\section}{0pt}{18pt}{8pt}
-\titlespacing*{\subsection}{0pt}{12pt}{6pt}
-\titlespacing*{\subsubsection}{0pt}{8pt}{4pt}
+\titlespacing*{\section}{0pt}{30pt plus 4pt minus 2pt}{12pt}
+\titlespacing*{\subsection}{0pt}{18pt plus 2pt minus 1pt}{8pt}
+\titlespacing*{\subsubsection}{0pt}{12pt plus 2pt minus 1pt}{6pt}
 
 %% ========================================================================
 %% LIST STYLING
@@ -242,9 +242,9 @@
 
 \setlist{
   leftmargin=1.5em,
-  itemsep=3pt,
+  itemsep=4pt,
   parsep=0pt,
-  topsep=4pt,
+  topsep=6pt,
 }
 
 % Awesome-CV style itemize: simple clean bullet
@@ -254,7 +254,7 @@
 }
 
 \setlist[enumerate]{
-  label={\textcolor{pn-primary}{\arabic*.}},
+  label={\textcolor{pn-text}{\arabic*.}},
 }
 
 \setlist[description]{
@@ -269,35 +269,36 @@
 \fancyhf{} % clear defaults
 
 % Footer on all pages
-\fancyfoot[L]{%
-  \footnotesize\poppinsfont\color{pn-text-secondary}%
-  \raisebox{-0.28em}{\pnInsertLogo[0.38cm]}\hspace{5pt}%
-  {\color{pn-primary}PoliNetwork}
+\newcommand{\pnFooterIdentity}{%
+  \begin{tabular}[c]{@{}l@{}}
+    \raisebox{-0.5\height}{\pnInsertLogo[0.40cm]}%
+    \hspace{4.5pt}%
+    \raisebox{-0.5\height}{{\fontsize{8.2pt}{9.2pt}\selectfont\poppinsmedium\color{pn-primary}PoliNetwork}}\\[-1.7pt]
+    {\fontsize{6.6pt}{7.6pt}\selectfont\poppinsfont\color{pn-text}%
+      \href{mailto:direttivo@polinetwork.org}{\textcolor{pn-text}{direttivo@polinetwork.org}}}
+  \end{tabular}%
 }
+
+\fancyfoot[L]{\pnFooterIdentity}
 \fancyfoot[R]{%
-  \footnotesize\poppinsfont\color{pn-text-secondary}%
+  \footnotesize\poppinsmedium\color{pn-text}%
   \pn@str@page~\thepage~\pn@str@of~\pageref*{LastPage}%
 }
 
 % Rule styling
 \renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0.5pt}
-\renewcommand{\footrule}{\vspace*{-8pt}\hbox to\headwidth{\color{pn-sky-100}\leaders\hrule height \footrulewidth\hfill}\vspace*{8pt}}
+\renewcommand{\footrulewidth}{0pt}
 
 % First page style: no running header
 \fancypagestyle{firstpage}{%
   \fancyhf{}
   \renewcommand{\headrulewidth}{0pt}
-  \fancyfoot[L]{%
-    \footnotesize\poppinsfont\color{pn-text-secondary}%
-    \raisebox{-0.28em}{\pnInsertLogo[0.38cm]}\hspace{5pt}{\color{pn-primary}PoliNetwork}
-  }
+  \fancyfoot[L]{\pnFooterIdentity}
   \fancyfoot[R]{%
-    \footnotesize\poppinsfont\color{pn-text-muted}%
+    \footnotesize\poppinsmedium\color{pn-text}%
     \pn@str@page~\thepage~\pn@str@of~\pageref*{LastPage}%
   }
-  \renewcommand{\footrulewidth}{0.4pt}
-  \renewcommand{\footrule}{\vspace*{-8pt}\hbox to\headwidth{\color{pn-sky-100}\leaders\hrule height \footrulewidth\hfill}\vspace*{8pt}}
+  \renewcommand{\footrulewidth}{0pt}
 }
 
 % Title page style (no header/footer)
@@ -325,6 +326,10 @@
 %% CONVENIENCE: AUTO-SETUP BASED ON DOCUMENT TYPE
 %% ========================================================================
 
+% Default: communication-oriented documents use visual hierarchy instead of
+% numbered headings. Legal/report documents opt into numbering automatically.
+\setcounter{secnumdepth}{-1}
+
 % Legal documents (privacy, T&C): use numbered sections, no title page
 \if@pnlegal
   % Enable paragraph numbering for legal docs
@@ -338,9 +343,17 @@
 
 % Letters: simpler layout
 \if@pnletter
-  \setcounter{secnumdepth}{0}
   % Tighter margins for letters
-  \geometry{top=2cm, bottom=2cm, left=2.5cm, right=2.5cm}
+  \geometry{top=2cm, bottom=3.0cm, left=2.5cm, right=2.5cm, footskip=1.45cm}
+\fi
+
+% Explicit overrides for reusable edge cases.
+\if@pnnumbered
+  \setcounter{secnumdepth}{3}
+\fi
+
+\if@pnunnumbered
+  \setcounter{secnumdepth}{-1}
 \fi
 
 \endinput

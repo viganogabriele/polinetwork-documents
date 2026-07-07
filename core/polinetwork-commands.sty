@@ -61,6 +61,11 @@
 \newcommand{\pnTitle}[1]{\renewcommand{\pn@doctitle}{#1}}
 \newcommand{\pnSubtitle}[1]{\renewcommand{\pn@docsubtitle}{#1}}
 \newcommand{\pnDocLabel}[1]{\renewcommand{\pn@doclabel}{#1}}
+\newcommand{\pnDate}[1]{\renewcommand{\pn@docdate}{#1}}
+\newcommand{\pnProtocol}[1]{\renewcommand{\pn@docprotocol}{#1}}
+\newcommand{\pnSubject}[1]{\renewcommand{\pn@docsubject}{#1}}
+\newcommand{\pnRecipient}[1]{\renewcommand{\pn@docrecipient}{#1}}
+\newcommand{\pnVersion}[1]{\renewcommand{\pn@docversion}{#1}}
 
 %% ========================================================================
 %% CONTACT LINK HELPERS
@@ -193,25 +198,60 @@
 % \pnMetaPill{Associazione studentesca}
 % \pnMetaLink{Sito web}{polinetwork.org}
 
-% Make the document header with website-inspired spacing and typography
+% Make a print-friendly document header focused on the document title.
 \newcommand{\pnMakeHeader}{%
-  \vspace*{-1.5cm} % pull up slightly
-  \begin{center}
-    \pnInsertLogo[2cm]\\[8pt]
-    \pnWordmark[34pt]\\[8pt]
+  \thispagestyle{firstpage}%
+  \vspace*{-0.25cm}%
+  \noindent
+  \begin{minipage}{\textwidth}
+    \ifthenelse{\equal{\pn@doclabel}{}}{}{%
+      {\small\labelfont\color{pn-primary}\MakeUppercase{\pn@doclabel}}\par\vspace{6pt}%
+    }%
     \ifthenelse{\equal{\pn@doctitle}{}}{}{%
-      {\Large\color{pn-text}\headlinefont\textbf{\pn@doctitle}}\\[2pt]
+      {\fontsize{31pt}{36pt}\selectfont\headlinefont\bfseries\color{pn-primary}\pn@doctitle\par}%
     }%
     \ifthenelse{\equal{\pn@docsubtitle}{}}{}{%
-      {\normalsize\color{pn-text-secondary}\poppinsfont\pn@docsubtitle}\\[6pt]
+      \vspace{7pt}%
+      {\large\poppinsfont\fontseries{sb}\selectfont\color{pn-text}\pn@docsubtitle\par}%
     }%
-    {\small\color{pn-text-secondary}\poppinsfont
-      \href{\pn@websiteurl}{\pn@website}
-      \quad{\color{pn-primary}\textbf{|}}\quad
-      \href{mailto:\pn@email}{\pn@email}
-    }
-  \end{center}
-  \vspace{16pt}
+  \end{minipage}
+  \par\vspace{24pt}
+}
+
+\newcommand{\pnMakeMetadata}{%
+  \ifthenelse{\equal{\pn@docsubject}{}\AND\equal{\pn@docrecipient}{}\AND\equal{\pn@docdate}{}\AND\equal{\pn@docversion}{}\AND\equal{\pn@docprotocol}{}}{}{%
+    \vspace{2pt}%
+    \noindent
+    \begin{tabularx}{\textwidth}{@{}>{\labelfont\small\color{pn-primary}}p{3.2cm}X@{}}
+      \ifthenelse{\equal{\pn@docdate}{}}{}{%
+        \pn@str@date & {\color{pn-text}\pn@docdate}\\[5pt]%
+      }%
+      \ifthenelse{\equal{\pn@docversion}{}}{}{%
+        \pn@str@version & {\color{pn-text}\pn@docversion}\\[5pt]%
+      }%
+      \ifthenelse{\equal{\pn@docprotocol}{}}{}{%
+        \pn@str@protocol & {\color{pn-text}\pn@docprotocol}\\[5pt]%
+      }%
+      \ifthenelse{\equal{\pn@docrecipient}{}}{}{%
+        \pn@str@to & {\color{pn-text}\pn@docrecipient}\\[5pt]%
+      }%
+      \ifthenelse{\equal{\pn@docsubject}{}}{}{%
+        \pn@str@subject & {\color{pn-text}\pn@docsubject}\\[5pt]%
+      }%
+    \end{tabularx}
+    \vspace{14pt}%
+  }%
+}
+
+\newcommand{\pnMakeTitlePage}{%
+  \thispagestyle{titlepage}%
+  \vspace*{0.18\textheight}%
+  \pnMakeHeader
+  \pnMakeMetadata
+  \thispagestyle{titlepage}%
+  \vfill
+  {\small\labelfont\color{pn-text-muted}\pn@associationname\par}%
+  \clearpage
 }
 
 \newcommand{\pnClosing}[1][Cordiali saluti,]{%
@@ -246,22 +286,27 @@
 %% STYLED SECTION COMMANDS
 %% ========================================================================
 
-% Primary section heading with blue accent bar
+% Primary section heading, kept for backward compatibility with older sources.
 \newcommand{\pnSection}[1]{%
-  \vspace{16pt}%
+  \vspace{30pt plus 4pt minus 2pt}%
   \noindent%
-  {\color{pn-rule}\rule{4pt}{14pt}}%
-  \hspace{8pt}%
-  {\Large\color{pn-text}\headlinefont\textbf{#1}}%
-  \par\vspace{6pt}%
+  {\Large\color{pn-primary}\headlinefont\textbf{#1}}%
+  \par\vspace{12pt}%
 }
 
 % Subsection
 \newcommand{\pnSubsection}[1]{%
-  \vspace{10pt}%
+  \vspace{18pt plus 2pt minus 1pt}%
   \noindent%
-  {\large\color{pn-primary}\headlinefont #1}%
-  \par\vspace{4pt}%
+  {\large\color{pn-text}\headlinefont\fontseries{sb}\selectfont #1}%
+  \par\vspace{8pt}%
+}
+
+% Compact heading for reusable content groups such as team names.
+\newcommand{\pnTeamHeading}[1]{%
+  \noindent%
+  {\large\headlinefont\bfseries\selectfont\color{pn-primary}#1}%
+  \par\vspace{3pt}%
 }
 
 %% ========================================================================
@@ -329,13 +374,11 @@
 % \pnInfoCard{Contatti}{Scrivici a info@polinetwork.org per collaborazioni e supporto.}
 
 %% ========================================================================
-%% HORIZONTAL RULE
+%% LEGACY SPACER
 %% ========================================================================
 
 \newcommand{\pnRule}{%
-  \vspace{6pt}
-  \noindent{\color{pn-rule}\rule{\textwidth}{1pt}}
-  \vspace{6pt}
+  \par\vspace{10pt}
 }
 
 %% ========================================================================
@@ -347,19 +390,17 @@
 
 \newcommand{\pnArticle}[1]{%
   \stepcounter{pn@article}%
-  \vspace{14pt}%
+  \vspace{22pt plus 4pt minus 2pt}%
   \noindent%
-  {\color{pn-rule}\rule{4pt}{14pt}}%
-  \hspace{8pt}%
-  {\Large\color{pn-text}\headlinefont\textbf{Art.\,\thepn@article\quad---\quad#1}}%
-  \par\vspace{6pt}%
+  {\Large\color{pn-primary}\headlinefont\textbf{Art.\,\thepn@article\hspace{0.6em}#1}}%
+  \par\vspace{9pt}%
 }
 
 \newcommand{\pnClause}[1]{%
   \stepcounter{pn@clause}%
   \vspace{6pt}%
   \noindent%
-  {\color{pn-primary}\thepn@article.\thepn@clause}\hspace{6pt}%
+  {\color{pn-text}\thepn@article.\thepn@clause}\hspace{6pt}%
   #1%
   \par\vspace{3pt}%
 }
@@ -372,12 +413,10 @@
 
 \newcommand{\pnNumberedSection}[1]{%
   \stepcounter{pn@numsec}%
-  \vspace{14pt}%
+  \vspace{22pt plus 4pt minus 2pt}%
   \noindent%
-  {\color{pn-rule}\rule{4pt}{14pt}}%
-  \hspace{8pt}%
-  {\Large\color{pn-text}\headlinefont\textbf{\thepn@numsec.\quad#1}}%
-  \par\vspace{6pt}%
+  {\Large\color{pn-primary}\headlinefont\textbf{\thepn@numsec.\hspace{0.6em}#1}}%
+  \par\vspace{9pt}%
 }
 
 %% ========================================================================
@@ -385,14 +424,12 @@
 %% ========================================================================
 
 \newcommand{\pnContactBlock}{%
-  \vspace{12pt}
-  {\color{pn-rule}\rule{\textwidth}{0.5pt}}
-  \vspace{6pt}
+  \vspace{16pt}
   \begin{center}
     {\small\color{pn-text-secondary}%
-      \pn@associationname\quad|\quad%
-      \pn@str@email: \pn@email\quad|\quad%
-      PEC: \pn@pec\quad|\quad%
+      \pn@associationname\quad%
+      \pn@str@email: \pn@email\quad%
+      PEC: \pn@pec\quad%
       \pn@str@website: \pn@website%
     }
   \end{center}
