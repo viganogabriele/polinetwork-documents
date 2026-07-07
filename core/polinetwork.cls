@@ -112,8 +112,8 @@
 %% LOAD POLINETWORK PACKAGES
 %% ========================================================================
 
-\RequirePackage{../core/polinetwork-colors}
-\RequirePackage{../core/polinetwork-commands}
+\RequirePackage{polinetwork-colors}
+\RequirePackage{polinetwork-commands}
 
 %% ========================================================================
 %% PAGE BACKGROUND
@@ -131,7 +131,7 @@
 
 % DM Sans — primary body/display font
 \newfontfamily\dmsansfont{DMSans}[
-  Path           = ../fonts/,
+  Path           = fonts/,
   Extension      = .ttf,
   UprightFont    = *-Variable,
   BoldFont       = *-Variable,
@@ -145,7 +145,7 @@
 
 % Poppins — headlines & wordmark
 \newfontfamily\poppinsfont{Poppins}[
-  Path           = ../fonts/,
+  Path           = fonts/,
   Extension      = .ttf,
   UprightFont    = *-Regular,
   BoldFont       = *-Bold,
@@ -156,13 +156,13 @@
 ]
 
 \newfontfamily\poppinsmedium{Poppins-Medium}[
-  Path           = ../fonts/,
+  Path           = fonts/,
   Extension      = .ttf,
 ]
 
 % Red Hat Text — labels, captions, small text
 \newfontfamily\redhattextfont{RedHatText}[
-  Path           = ../fonts/,
+  Path           = fonts/,
   Extension      = .ttf,
   UprightFont    = *-Variable,
   BoldFont       = *-Variable,
@@ -176,7 +176,7 @@
 
 % Set main document fonts
 \setmainfont{DMSans}[
-  Path           = ../fonts/,
+  Path           = fonts/,
   Extension      = .ttf,
   UprightFont    = *-Variable,
   BoldFont       = *-Variable,

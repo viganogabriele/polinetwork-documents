@@ -8,10 +8,13 @@ titolo forte, gerarchia tipografica pulita e footer istituzionale discreto.
 
 ```text
 polinetwork-document/
+|-- prompt.md                      # Prompt canonico per generare LaTeX con AI
 |-- core/                          # Stile e logica
 |   |-- polinetwork.cls            # Classe documento principale
 |   |-- polinetwork-colors.sty     # Palette colori del brand
 |   `-- polinetwork-commands.sty   # Comandi custom
+|-- templates/                     # Sorgenti base riutilizzabili
+|   `-- base-document.tex          # Skeleton minimo compilabile
 |-- fonts/                         # Font del brand
 |-- assets/                        # Logo e asset grafici
 |-- documents/                     # Documenti sorgente reali
@@ -30,7 +33,7 @@ ma non viene applicato ai documenti.
 - **XeLaTeX**, incluso in TeX Live o MiKTeX.
 - Pacchetti LaTeX: `fontspec`, `xcolor`, `geometry`, `fancyhdr`, `titlesec`,
   `hyperref`, `enumitem`, `tikz`, `microtype`, `parskip`, `setspace`,
-  `booktabs`, `longtable`, `lastpage`.
+  `booktabs`, `longtable`, `tabularx`, `array`, `lastpage`.
 
 Su Arch Linux:
 
@@ -41,7 +44,9 @@ sudo pacman -S texlive-basic texlive-latex texlive-latexextra texlive-fontsrecom
 Su Windows con MiKTeX puoi compilare senza `make`:
 
 ```powershell
-mkdir output
+$root = (Get-Location).Path
+$env:TEXINPUTS = "$root\core;$root;"
+New-Item -ItemType Directory -Force output | Out-Null
 xelatex -interaction=nonstopmode -halt-on-error -output-directory=output documents\PoliNetwork.tex
 xelatex -interaction=nonstopmode -halt-on-error -output-directory=output documents\PoliNetwork.tex
 ```
@@ -68,20 +73,49 @@ make clean
 
 Tutti i PDF vengono creati nella cartella `output/`.
 
+## Workflow AI to LaTeX
+
+Il file `prompt.md` e' il prompt canonico da dare a un'AI quando vuoi
+trasformare testo libero in un documento LaTeX con questo stile.
+
+Uso consigliato:
+
+1. Fornisci all'AI il contenuto di `prompt.md`.
+2. Aggiungi il testo da convertire.
+3. Chiedi all'AI di restituire solo:
+   - un blocco `latex` con il file `.tex` completo;
+   - un blocco `bash` con il comando di compilazione.
+4. Salva il sorgente dentro `documents/`.
+5. Compila il file dalla root del progetto.
+
+Il prompt vieta modifiche grafiche: l'AI deve usare la classe
+`polinetwork`, i comandi pubblici del template e il contenuto ricevuto,
+senza ridefinire colori, font, margini, header o footer.
+
 ## Come creare un nuovo documento
 
-1. Crea un file `.tex` dentro `documents/`, ad esempio `documents/nuovo-progetto.tex`.
+1. Parti da `templates/base-document.tex` oppure crea un file `.tex` dentro
+   `documents/`, ad esempio `documents/nuovo-progetto.tex`.
 2. Usa una delle classi disponibili:
 
 ```latex
-\documentclass[letter]{core/polinetwork}
-\documentclass[legal]{core/polinetwork}
-\documentclass[report]{core/polinetwork}
+\documentclass[letter]{polinetwork}
+\documentclass[legal]{polinetwork}
+\documentclass[report]{polinetwork}
 ```
 
 3. Imposta almeno `\pnTitle{...}` nel preambolo.
 4. Richiama `\pnMakeHeader` dopo `\begin{document}`.
 5. Aggiungi il target al `Makefile` se vuoi compilarlo con `make`.
+
+Per compilare direttamente un nuovo file senza aggiungere subito un target al
+`Makefile`:
+
+```bash
+mkdir -p output
+TEXINPUTS="$(pwd)/core:$(pwd):" xelatex -interaction=nonstopmode -halt-on-error -output-directory=output documents/nome-documento.tex
+TEXINPUTS="$(pwd)/core:$(pwd):" xelatex -interaction=nonstopmode -halt-on-error -output-directory=output documents/nome-documento.tex
+```
 
 ## Comandi disponibili
 
@@ -145,11 +179,11 @@ Medium blu, senza righe orizzontali.
 ## Opzioni della classe
 
 ```latex
-\documentclass[letter]{core/polinetwork}     % Documenti comunicativi, senza numeri nei titoli
-\documentclass[legal]{core/polinetwork}      % Documenti legali numerati
-\documentclass[report]{core/polinetwork}     % Report con copertina e titoli numerati
-\documentclass[numbered]{core/polinetwork}   % Forza titoli numerati
-\documentclass[unnumbered]{core/polinetwork} % Forza titoli senza numeri
+\documentclass[letter]{polinetwork}     % Documenti comunicativi, senza numeri nei titoli
+\documentclass[legal]{polinetwork}      % Documenti legali numerati
+\documentclass[report]{polinetwork}     % Report con copertina e titoli numerati
+\documentclass[numbered]{polinetwork}   % Forza titoli numerati
+\documentclass[unnumbered]{polinetwork} % Forza titoli senza numeri
 ```
 
 Per default il template privilegia la gerarchia visiva: colore, peso e

@@ -1,0 +1,881 @@
+\documentclass[legal]{polinetwork}
+
+\pnTitle{Guida della Matricola}
+\pnDate{6 Luglio 2026}
+\pnVersion{1.0.2}
+
+\setcounter{tocdepth}{1}
+
+\makeatletter
+\renewcommand{\contentsname}{Indice}
+\renewcommand{\tableofcontents}{%
+  \section*{\contentsname}%
+  \vspace{0.25em}%
+  \@starttoc{toc}%
+}
+\renewcommand{\l@section}[2]{%
+  \addvspace{0.45em}%
+  {\poppinsfont\fontseries{sb}\selectfont\color{pn-primary}%
+    \@dottedtocline{1}{0pt}{2.6em}{#1}{#2}}%
+}
+\makeatother
+
+\titleformat{\subsubsection}[block]
+  {\small\poppinsfont\fontseries{sb}\selectfont\color{pn-text-secondary}}
+  {\textcolor{pn-primary}{\thesubsubsection}\hspace{0.45em}}
+  {0pt}
+  {}
+
+\titlespacing*{\subsubsection}{0pt}{12pt plus 2pt minus 1pt}{5pt}
+
+\begin{document}
+
+\pnMakeHeader
+\pnMakeMetadata
+
+\tableofcontents
+\newpage
+
+\section{Esonero di Responsabilità}
+
+\textbf{Ultimo aggiornamento}: 6 Luglio 2026
+
+Il presente documento è una guida NON ufficiale redatta in modo indipendente da studenti per conto di PoliNetwork.
+
+\begin{itemize}
+  \item \textbf{Nessuna affiliazione}: Questa guida non è in alcun modo approvata, sponsorizzata o affiliata al Politecnico di Milano o ai suoi organi amministrativi e didattici.
+  \item \textbf{Verifica delle informazioni}: Le informazioni contenute in questo documento sono destinate esclusivamente a scopo informativo e di orientamento generale. Sebbene sia stato fatto ogni sforzo per garantire l'accuratezza e l'accuratezza dei dati al momento della redazione, le procedure, i regolamenti e le tempistiche universitarie sono soggetti a frequenti variazioni. Si invita caldamente l'utente a controllare e verificare sempre le informazioni sui canali ufficiali del Politecnico di Milano (es. Manifesto degli Studi, Segreterie Studenti, sito web di Ateneo).
+  \item \textbf{Esclusione di responsabilità}: Gli autori e PoliNetwork declinano ogni responsabilità per eventuali errori, omissioni, inesattezze o per qualsiasi danno, diretto o indiretto, o inconveniente derivante dall'uso delle informazioni presenti in questa guida o dall'affidamento fatto su di esse.
+\end{itemize}
+
+\textbf{Nota bene}: In caso di discordanza tra quanto riportato in questa guida e le disposizioni emanate ufficialmente dal Politecnico di Milano, \textbf{hanno valore legale esclusivamente i testi e i regolamenti ufficiali} dell'Ateneo.
+
+\section{Introduzione}
+
+Questa è una guida offerta da PoliNetwork per gli studenti del Politecnico di Milano, basata sulle domande che gli admin ricevono più spesso dagli studenti.
+
+La guida può subire modifiche durante il corso degli anni, assicurarsi che la guida che si sta leggendo sia l'ultima versione.
+
+Versione: $1.0.2$
+
+Contributi: \href{https://drive.google.com/uc?export=download\&id=1H1ZpMxJEGjITsQTOCewTA2Pb4fh74yjL}{Niccolò Papini}
+
+\section{Come funziona il TOL e l'immatricolazione al Politecnico di Milano}
+
+\subsection{Che cos'è il TOL?}
+
+IL TOL è il mezzo tramite cui il Politecnico di Milano verifica la tua preparazione in 4 categorie: Logica e Matematica, Comprensione Verbale, Fisica e Inglese.
+
+Ad oggi la prova può essere svolta al quarto e al quinto anno.
+
+Se si svolge la prova al quarto anno e si supera con un punteggio $\geq 75/100$ si ha diritto ad un posto garantito in qualsiasi corso di laurea del poli per il quale si è svolto il test, TOL Ingegneria, ARCHED, Architettura, TOL-D Design o il Test per Urbanistica. $\implies$ svolgendo il test di ingresso in quarta vi farete un'estate della quinta dopo la maturità in riva al mare mentre i vostri amici studieranno per i test delle loro università e potrete prenderli in giro.
+
+Se invece svolgete il TOL al quinto anno, dovrete partecipare alle graduatorie che solitamente sono a luglio-agosto $\implies$ anche voi vi godrete l'estate.
+
+\subsubsection{Quando svolgere il TOL?}
+
+Per questo punto vi lasciamo il link alla pagina polimi interessata, dato che sarebbe inutile e ridondante mettere date e cambiarle ogni anno. \href{https://www.polimi.it/futuri-studenti/test-e-ammissione/laurea/ingegneria/quando-iscriversi-al-tol}{Link alla pagina polimi TOL}
+
+\subsubsection{Come mi preparo al test TOL?}
+
+Avete due metodi principalmente:
+
+\begin{enumerate}
+  \item Quello ufficiale, il poli pubblica dei .pdf apposta per la preparazione all'esame e di gratuita consultazione, oppure passando per ogni campus del politecnico potete trovare il manuale venduto in ogni PoliPrint (fotocopisteria del politecnico di milano). \href{https://www.polimi.it/futuri-studenti/test-e-ammissione/laurea/ingegneria/in-cosa-consiste-il-tol-e-come-prepararsi}{Link alla pagina di preparazione}
+  \item Noi di PoliNetwork abbiamo sviluppato un simulatore di prove TOL, non possiamo garantire nulla ma i test si avvicinano molto a quello che vi ritroverete il giorno della prova. \href{https://tol.polinetwork.org/}{Link al simulatore}
+\end{enumerate}
+
+\subsection{Ho passato il TOL con un punteggio che mi soddisfa cosa devo fare ora ?}
+
+Aspettare che si aprano le graduatorie, le graduatorie sono di due tipi: anticipata e standard.
+
+\begin{itemize}
+  \item Graduatoria ad accesso anticipato: si apre 2 settimane prima della prima graduatoria standard di base (ma vi chiediamo di confermare guardando il link in fondo a questo sottocapitolo) e possono iscrivercisi solo gli studenti che hanno svolto il TOL al quarto anno di superiori, RICORDATEVI DI ISCRIVERVI ALTRIMENTI PERDERETE L'OCCASIONE E PARTECIPERETE SOLO A QUELLE STANDARD.
+  \item Graduatoria standard: questa è per tutti coloro che abbiano ricevuto un punteggio TOL $\geq 30/100$ e si svolge come una normale graduatoria quindi a seconda dei posti disponibili si accettano tutti coloro che rientrano nel range e dopo una fase di immatricolazione si scorre aprendo la seconda graduatoria e così via. Si ricorda che se NON ci si dovesse iscrivere alla graduatoria allora NON ci si prenderà parte pure avendo fatto un punteggio di $100/100$ al TOL.
+\end{itemize}
+
+Vi lasciamo il link alla pagina per scoprire le date delle varie graduatorie. \href{https://www.polimi.it/futuri-studenti/test-e-ammissione/laurea/ingegneria/punteggi-e-formulazione-delle-graduatorie}{Date graduatorie TOL}
+
+\subsection{Quando posso vedere la graduatoria ?}
+
+La graduatoria è visibile solo dopo la sua uscita, NON 2 min prima NON 2 giorni prima e NO non esistono modi loschi per visualizzarla prima quindi non chiedetelo. Le date di uscita delle graduatorie sono segnate sulla pagina del poli al seguente link: \href{https://www.polimi.it/futuri-studenti/test-e-ammissione/laurea/ingegneria/punteggi-e-formulazione-delle-graduatorie}{Date graduatorie TOL}
+
+\subsection{Dove posso vedere la graduatoria ?}
+
+La graduatoria è visualizzabile al seguente percorso "Servizi Online" -> "Lauree triennali e a ciclo unico: test di ingresso o di recupero ed immatricolazione", da qui cercare qualcosa di simile a "visualizza graduatoria"
+
+\subsection{Cosa vuol dire "IN ATTESA" ?}
+
+Vuol dire che purtroppo per questa graduatoria non sei stato preso in nessun corso di studi per il quale hai espresso interesse. Devi manifestare l'interesse di partecipare alla graduatoria successiva altrimenti verrai considerato rinunciatario e dovrai aspettare la fase successiva.
+
+\subsection{È possibile cambiare le preferenze ?}
+
+È possibile cambiare le preferenze indicate quando hai fatto il test fino a prima della domanda di immatricolazione.
+
+\subsection{Quante graduatorie esistono ?}
+
+Esistono 8 graduatorie e sono suddivise in 4 per la seconda fase, 2 per la terza e 2 per l'ultima fase. La prima fase è limitata a chi svolge il test al quarto anno. Per le date è possibile visualizzarle al seguente link: \href{https://www.polimi.it/futuri-studenti/test-e-ammissione/laurea/ingegneria/punteggi-e-formulazione-delle-graduatorie}{Date graduatorie TOL}
+
+\subsection{Se alla seconda graduatoria non entro nel corso preferito, perdo il posto nel corso di backup?}
+
+Se risulti "PRENOTATO" vuol dire che non sei stato preso al corso in prima posizione delle tue preferenze ma sei stato preso in uno degli altri, puoi comunque iscriverti alla graduatoria successiva se non ti immatricoli, il posto chiaramente verrà perso in quella graduatoria e non è garantito che nella successiva ti venga ridato.
+
+\subsection{Il voto di maturità influisce sull'ammissione ?}
+
+No, il voto di maturità non influisce.
+
+\subsection{È necessario aver messo l'ISEE entro la prima graduatoria?}
+
+No ma fortemente consigliato per eventuali agevolazioni. L’ISEE ci mette circa 10 giorni lavorativi a caricarsi e prima o poi andrà comunque fatto quindi la cosa migliore è caricarlo il prima possibile.
+
+Controllare che all’interno della propria certificazione ci sia scritta la specifica per l’università
+
+\subsection{Qual è stato il punteggio minimo per il corso di laurea X ?}
+
+Potete visualizzare le graduatorie degli anni precedenti al seguente link: \href{https://rankings.polinetwork.org/}{Ranking polimi}
+
+\subsection{Ho passato la graduatoria come mi immatricolo ?}
+
+BENE! Sei stato preso nei posti disponibili alla graduatoria e ti è spuntato un flag "ASSEGNATO", ora hai pochissimi giorni per immatricolarti. QUINDI consigliamo fortemente di farlo subito senza perdere tempo per non rischiare di avere problemi o dimenticanze dell'ultimo minuto.
+
+Per immatricolarti ti verrà chiesto di pagare la prima rata. Una volta confermato il pagamento verrà confermata la tua immatricolazione e potrai rilassarti. La conferma potrebbe arrivare subito tramite "IO" app.
+
+\subsubsection{E se mi dimentico ?}
+
+Se ti dimentichi ci dispiace informarti che NON potrai immatricolarti e verrai considerato come rinunciatario per quest'anno costringendoti a ripetere tutto (TOL e Graduatoria) l'anno dopo...
+
+P.S. Questo non si applica se avevi il flag "PRENOTATO"
+
+\subsubsection{E se era l'ultima graduatoria ?}
+
+Ci dispiace informarti che oltre l'ultima graduatoria non ti sarà più possibile immatricolarti pure se eri stato preso a quella prima e dovrai rifare tutto (TOL e Graduatoria) l'anno dopo.
+
+Lasciamo anche qui il link alla pagina polimi con le date e i flag corretti. \href{https://www.polimi.it/futuri-studenti/test-e-ammissione/laurea/ingegneria/quando-immatricolarsi}{Immatricolazione}
+
+\subsection{La mia immatricolazione risulta 'non perfezionata': è un problema se aspetto ancora il voto di maturità ?}
+
+No, basta che appena hai il voto lo inserisci.
+
+L'importante è aver pagato la prima rata.
+
+\subsection{Cosa si fa se non si riesce ad accedere al sito del Polimi per immatricolarsi?}
+
+Se non avete aspettato l'ultima ora per immatricolarsi bene, altrimenti potrebbe essere un problema bello grosso. Terminato il tempo perderai definitivamente il posto se risultavi come "ASSEGNATO".
+
+\subsection{Quali sono le scadenze per l'immatricolazione?}
+
+Pochi giorni.
+
+\subsection{Come si paga la prima rata? Si può stampare il bollettino e pagarlo in tabaccheria?}
+
+Si paga tramite servizi online, utilizzando PagoPA della banca oppure tramite CBILL se ti fai emettere il bollettino.
+
+Si puoi pagarlo in tabaccheria, puoi pagarlo anche in posta.
+
+\subsection{L'importo della prima rata viene calcolato automaticamente in base all'ISEE ?}
+
+Si, viene calcolato in automatico.
+
+Se l'ISEE non è stato inserito si apporta il prezzo pieno.
+
+L'ISEE da inserire deve essere specifico per l'uso universitario, va specificato quando si fa richiesta per l'ISEE.
+
+\subsection{Entro quando va pagata la rata di immatricolazione ?}
+
+La rata per immatricolarsi va pagata entro scadenza della finestra in cui si è vinto il posto, \textbf{CONTROLLATE} la scadenza. Se non doveste rispettarla, verrete considerati \textbf{RINUNCIATARI} $\implies$ dovrete riprovare anno prossimo.
+
+\subsection{Bello il TOL eh, ma se faccio il TOLC-I o un test alternativo ?}
+
+Il Politecnico converte alcuni test dando un punteggio equivalente TOL, per sapere quali e come vengano convertiti vi lasciamo il link alla pagina del poli. \href{https://www.polimi.it/futuri-studenti/test-e-ammissione/laurea/ingegneria/sei-in-possesso-di-un-test-alternativo}{Link per i test alternativi}
+
+\subsection{Voto di maturità}
+
+Il voto  di maturità non dà nessuna agevolazione a livello di tasse o ingresso, serve al poli solo come check per assicurarsi che tu abbia un diploma.
+
+\subsubsection{Entro quando devo inserirlo ?}
+
+Appena ti esce, non è necessario per immatricolarsi.
+
+Per immatricolarsi è necessario pagare la prima rata.
+
+\subsection{ISEE}
+
+L'ISEE è il mezzo che si utilizza per calcolare le tasse universitarie da pagare.
+
+\subsubsection{Come lo richiedo ?}
+
+Si richiede tramite CAF oppure online dal sito dell'INPS se si è dei pro, personalmente consiglio di andare al CAF.
+
+\subsubsection{Devo richiedere un ISEE particolare ?}
+
+Si, va richiesto l'ISEE per uso universitario. Se si richiede solo l'ISEE standard questo non sarà valido per il calcolo della fascia per il pagamento della tassa e vi verrà data la fascia massima.
+
+\subsubsection{Entro quando va inserito per il pagamento della prima rata ?}
+
+Va inserito per il secondo semestre e da lì regolarmente ad ogni nuovo anno. Lasciamo il link alla pagina per le agevolazioni in base all'ISEE \href{https://www.polimi.it/studenti/tasse-universitarie/graduazione-del-contributo-onnicomprensivo}{ISEE}
+
+\subsubsection{Dove inserisco l'ISEE ?}
+
+"Servizi Online" -> "Tasse e agevolazioni" -> "ISEE"
+
+Per le persone ancora non immatricolate è in "Servizi Online" -> "Richieste di Ammissione" -> "INSERIMENTO ISEE PER IMMATRICOLAZIONE"
+
+\subsubsection{Entro quando devo inserire l'ISEE per la seconda rata ?}
+
+L'ISEE va inserito prima dell'uscita della seconda rata, quindi prima di maggio.
+
+\subsubsection{Cosa succede se mi dimentico ?}
+
+Se ci si dimentica di inserire l'isee entro scadenza, verrà assegnata la fascia di reddito massima e quindi bisognerà pagare il massimo della rata. Ma non panicate, se infatti inserirete l'isee in ritardo allo scadere della scadenza per pagare la rata vi verrà data possibilità di pagare la rata della vostra fascia con una mora di 200€ per il ritardo sull'inserimento dell'isee e 50€ per il ritardo sul pagamento della rata (se siete in ritardo), la mora sul ritardo della rata incrementa nel tempo.
+
+\section{Ecco le cose da fare se ti sei appena immatricolato}
+
+Complimenti, se non l'hai ancora fatto entra nel gruppo telegram di PoliNetwork dedicato alle matricole di ogni anno accademico. Ecco il link dell'anno 26/27 \href{https://t.me/polimatricole}{Link al canale}.
+
+\subsection{E una volta entrato ?}
+
+Inizia a conoscere i tuoi nuovi colleghi e stringi amicizie prima dell'inizio dell'univerità, goditi l'estate e aspetta l'inizio delle lezioni.
+
+\subsection{E se volessi creare il gruppo del mio corso di studio (CCS) ?}
+
+Non serve, infatti PoliNetwork fa questo da anni e sa benissimo quando è il tempo opportuno per "lanciare" i gruppi whatsapp per ogni CCS. Pazienta e sarai ricompensato.
+
+\subsection{E se ho bisogno di aiuto ?}
+
+In ogni gruppo puoi trovare degli admin che saranno felicissimi di aiutarti per ogni cosa tu abbia bisogno, tra loro potrai trovare anche qualche tuo rappresentante.
+
+\subsection{E se avessi bisogno di un aiuto da parte dei rappresentanti ?}
+
+Non preoccuparti hai tanti metodi per comunicare e conoscere i rappresentanti:
+
+\begin{enumerate}
+  \item Lezione Zero: una lezione che si svolge qualche giorno prima delle lezioni e che terranno i rappresentanti e il coordinatore del tuo corso di studi, consigliamo caldamente la partecipazione.
+  \item Mail dei rappresentanti, ogni rappresentante di ogni CCS ha una mail che li accomuna. Se hai bisogno di aiuto per un problema con l'università cerca la mail dei tuoi rappresentanti.
+\end{enumerate}
+
+\href{https://www.ingindinf.polimi.it/la-scuola/rappresentanti-degli-studenti}{Pagina con le mail dei rappresentanti della scuola 3I(Ingegneria Industriale e dell'Informazione)}
+
+\href{https://www.ingcat.polimi.it/la-scuola/rappresentanti-degli-studenti}{Pagina con le mail dei rappresentanti della scuola ICAT(Ingegneria Civile, Ambientale e Territoriale)}
+
+\href{https://www.design.polimi.it/la-scuola/rappresentanti-degli-studenti}{Pagina con le mail dei rappresentanti della scuola di Design}
+
+\href{https://www.auic.polimi.it/la-scuola/rappresentanti-degli-studenti}{Pagina con le mail dei rappresentanti della scuola AUIC (Architettura Urbanistica e Ingegneria delle Costruzioni)}
+
+\begin{enumerate}
+  \item Pagina instagram del tuo CCS: infatti molti rappresentanti degli studenti hanno un pagina instagram che aggiornano e usano per comunicazioni con i propri studenti, come: Novità, Eventi oppure per ricevere segnalazioni e chiedere feedback.
+  \item I gruppi whatsapp: infatti dentro i gruppi whatsapp tra gli admin si trovano alcuni rappresentanti degli studenti presenti e attenti per aiutarvi in caso di necessità. Quindi usateli per chiedere assistenza a loro direttamente.
+\end{enumerate}
+
+\subsection{Sono al primo anno e mi sono appena immatricolato cosa NON devo assolutamente fare ?}
+
+NON TOCCARE IL PIANO DEGLI STUDI.
+
+O meglio, controlla il regolamento del tuo corso di studi e controlla se al primo anno hai dei corsi selezionabili a scelta o meno. È tutto scritto sul regolamento del tuo corso di studi, \textbf{LEGGETELO}
+
+\href{https://www.polimi.it/studenti/piano-degli-studi-e-ofa}{Pagina polimi sul piano degli studi}
+
+\section{Tasse}
+
+\subsection{Quante rate esistono ?}
+
+Esistono 2 rate: una viene pagata ad Agosto o comunque per immatricolarsi, mentre la seconda si paga verso Aprile - Maggio
+
+\subsection{Qual è la scadenza della seconda rata ?}
+
+La seconda rata ha una scadenza variabile, comunque la scadenza si aggira sempre intorno a fine Maggio.
+
+\subsection{L'isee regna sovrano ?}
+
+SI, l'isee regna sovrano. Infatti con questo si avrà la possibilità di avere la prima e la seconda rata scontata in base alla propria fascia di reddito. DUNQUE NON ASPETTATE TROPPO A RICHIEDERLO.
+
+\section{DSU}
+
+La DSU è anche conosciuta come Borsa per il Diritto allo Studio, dà diversi benefici ai vincitori come:
+
+\begin{itemize}
+  \item Tasse dimezzate o nulle;
+  \item Buoni pasto;
+  \item Alloggio.
+\end{itemize}
+
+Le DSU sono di due criteri:
+
+\begin{itemize}
+  \item Merito (basati sulla media)
+  \item Reddito (basata sull'ISEE)
+\end{itemize}
+
+\subsection{Come faccio domanda per la DSU (Borsa per il Diritto allo Studio)}
+
+Per richiedere la borsa di studio è necessario tenersi informati su quando uscirà il bando e leggere adeguatamente i criteri e i requisiti per partecipare, trovate tutto a questo link: \href{https://www.polimi.it/studenti/tasse-borse-e-agevolazioni/diritto-allo-studio}{Link per DSU}
+
+\subsection{L'IBAN di Revolut è accettato per la DSU ?}
+
+Sì tutte le carte anche digitali dotate di un IBAN vanno bene.
+
+\subsection{Il DSU è compatibile con altre borse di studio ?}
+
+No, la borsa non è cumulabile (pagina 19 bando). Viene fatta eccezione per eventuali agevolazioni internazionali,
+
+Se si sceglie di accettare una borsa non DSU, bisogna comunicarlo entro 10 giorni dall’accettazione della prima così da venire rimossi dalla graduatoria.
+
+E non è compatibile la DSU nemmeno con il contributo MIUR per le spese di locazione.
+
+\subsection{Entro quando esce la graduatoria ?}
+
+Mettere date qui è abbastanza inutile dato che varia da anno in anno. Consigliamo quindi di guardare la pagina del poli dedicata alla \href{https://www.polimi.it/studenti/tasse-borse-e-agevolazioni/diritto-allo-studio}{DSU}
+
+\subsection{Quali sono le condizioni per la DSU ?}
+
+Mettere condizioni qui è abbastanza inutile dato che possono variare da anno in anno. Consigliamo quindi di guardare la pagina del poli dedicata alla \href{https://www.polimi.it/studenti/tasse-borse-e-agevolazioni/diritto-allo-studio}{DSU}
+
+\subsection{Ci sono bandi per le borse di studio riservate alle donne nello STEM ?}
+
+Si, sono presenti a questa \href{https://www.polimi.it/campus-e-servizi/pari-opportunita-e-inclusione/parita-di-genere/girlspolimi}{pagina}
+
+\subsection{La DSU si prende solo al primo anno ?}
+
+No, la DSU può essere richiesta ogni anno e se si vuole partecipare bisogna partecipare ogni anno.
+
+\subsection{Un contratto a cedolare secca rinnovabile ogni 6 mesi è valido per la borsa fuori sede ?}
+
+È valido sotto i riferimenti della normativa vigente.
+
+\section{PoliCard}
+
+\subsection{Cos'è ?}
+
+La PoliCard è sostanzialmente un badge con potenziale di prepagata, la policard mi servirà per poter usufruire di molti servizi al politecnico: Accesso in biblioteca, parcheggio biciclette e accesso in alcune aree che richiedono il riconoscimento con Badge.
+
+\subsection{Quanto tempo ci mette ad arrivare ?}
+
+Dipende dalle zone, non preoccupatevi fino ad ottobre.
+
+\subsection{Sono iniziate le lezioni e non ho ancora la policard, che cosa posso fare ?}
+
+Ok, questo non è un problemone ma è una cosa antipatica ti capisco. Innanzitutto è normale non preoccuparti, succede di consegne in ritardo, prima di tutto assicurati di non averla ricevuta al tuo indirizzo di residenza (non quello di domicilio). Seconda cosa che si può fare è dare un'altra settimana dall'inizio delle lezioni, infatti la policard è affidata ad enti di consegna che possono creare ritardi. Terzo, se è passata la settimana e ancora niente scrivi alla segreteria una mail per sicurezza la procedura è: "Servizi Online" -> "Nuova Richiesta".
+
+\subsection{Come si attiva la prepagata PoliCard ?}
+
+La procedura è totalmente facoltativa, avete due modalità:
+
+\begin{itemize}
+  \item Online tramite "Servizi Online" -> “Tesserino PoliCard – attivazione servizi bancari"
+  \item Di persona presso una sede BPER Banca (è dentro Campus Leo o anche a Campus La Masa)
+\end{itemize}
+
+Con l'attivazione avrete assegnato l'iban della vostra prepagata e potrete ricevere i soldi per i buoni pasto e/o DSU direttamente su quella carta.
+
+\subsection{Ha senso attivare la prepagata ?}
+
+La procedura è facoltativa, a vostra discrezione.
+
+\section{Mail istituzionale e credenziali}
+
+\subsection{Com'è la mail del poli ?}
+
+La mail del poli per noi studenti è standard: \href{mailto:nome.cognome@mail.polimi.it}{nome.cognome@mail.polimi.it} il nome è seguito da dei numeri se sono presenti omonimi (nome e cognome già registrati) è anche possibile usare un secondo indirizzo, che in realtà è connesso al primo: \href{mailto:codice_persona@polimi.it}{codice\_persona@polimi.it}
+
+\subsection{Come si attiva la mail ?}
+
+Controllare la mail che si è inserita per iscriversi ai vari test polimi, vi arriveranno lì le procedure e tutte le informazioni utili PRIMA dell'attivazione dell'account e mail istituzionale.
+
+\subsection{Mi stanno arrivando mail scam sulla mail del poli, che faccio ?}
+
+È normale, il poli manda periodicamente finte mail scam per sensibilizzare sulla sicurezza in rete.
+
+\subsection{Quali sono le credenziali del poli ?}
+
+Le credenziali del poli sono "\texttt{codice\_persona}" e "\texttt{password}", per gli studenti italiani verrà richiesta l'attivazione dell'autenticazione a due fattori obbligatoria, per gli stranieri viene richiesta solo l'accesso con credenziali.
+
+\subsection{È davvero fondamentale ricordarsi il codice persone e addirittura la matricola ?}
+
+Si, questi infatti vengono usati per rendere anonimi gli esiti degli esami quando vengono pubblicati e vi viene chiesto di scriverli sui fogli d'esame per lo stesso motivo. E anche come "double-check"
+
+\section{Corso sulla Sicurezza}
+
+\subsection{Cosa sono i corsi sulla sicurezza che appaiono sui servizi online ?}
+
+I corsi sulla sicurezza sono una garanzia che il politecnico deve avere affinchè in caso di emergenza si sappiano le procedure da svolgere, che molte volte sono banale buon senso.
+
+\subsection{Non ho voglia di fare il corso base, mi serve ?}
+
+Si, cioè non per sopravvivere, ma vi serve per poter sostenere gli esami. Ragazzi forza dura 10 min e sono domande tipo "Se prende fuoco un'aula, devo chiudere la porta e non dirlo a nessuno ? Si/No"
+
+\subsection{Non mi hanno fatto fare l'esame perché non ho fatto il corso base, cosa posso fare ?}
+
+Fare il corso base.
+
+\subsection{Quali corsi devo fare ?}
+
+Dipende dal corso di laurea, quello base serve a tutti. Se il tuo corso di laurea richiede l'utilizzo di laboratori è possibile che tu debba fare anche quelli specifici per quei laboratori, comunque la pagina e i professori vi diranno se vi serviranno altri corsi oltre quello base.
+
+Come per i piani di studi, bisogna leggere il regolamento del corso di studi per capire che corsi sulla sicurezza vanno fatti.
+
+\section{Come funziona il piano degli studi}
+
+Se sei del primo anno questa sezione NON fa per te. Procedi a guardare le altre.
+
+Se invece sei qualcuno del primo anno masochista o qualcuno del secondo anno o sopra allora questa sezione fa per te.
+
+\subsection{Che cos'è il piano degli studi ?}
+
+Il piano degli studi è un piano in cui dichiari gli esami che hai intenzione di svolgere in quest'anno accademico.
+
+\subsection{Come funzione la compilazione del piano ?}
+
+Tramite la pagina dei servizi online del politecnico è possibile "Presentare" (Settembre) o "Modificare"(Febbraio) il piano degli studi.
+
+\begin{itemize}
+  \item Presentare: In questa fase è possibile presentare tutti i corsi che si intendono svolgere dal primo al secondo semestre. Annualmente è possibile presentare massimo $80\ CFU$ ma attenti che superata la soglia di $74\ CFU$ si pagherà una maggiorazione del $30\%$ della tassa.
+  \item Modificare: In questa fase si possono cambiare solo i corsi del secondo semestre presentati con altri corsi del secondo semestre.
+\end{itemize}
+
+Se si modifica o si presenta un piano diverso da quello consigliato allora questo dovrà essere approvato prima di diventare definitivo.
+
+\subsection{Posso mettere tutti i corsi che mi pare ?}
+
+Non proprio, bisogna inserire i corsi in ordine di anno, quindi prima tutti quelli del primo, poi quelli del secondo e così via.
+
+\subsection{È possibile sorvolare questa regola ?}
+
+NO, o meglio non è possibile nel caso di corsi arretrati ma è possibile nel caso di corsi degli anni superiori di uno. (Esempio pratico: sono al primo anno e ho tutti i corsi del primo anno nel piano, ma sono sadico e voglio inserire corsi del terzo, posso inserire quei corsi come sovrannumerari). L'esempio mostra come se ci si trova a un anno superiore al primo sia inutile utilizzare questi trucchetti dato che una volta inseriti tutti i corsi del proprio anno si possono aggiungere tranquillamente quelli dell'anno dopo.
+
+\subsection{Posso fare Analisi 2 prima di Analisi 1?}
+
+Salvo alcuni casi, per il quale richiediamo sempre la lettura del Regolamento dl corso di studi. Si, al politecnico la maggior parte degli insegnamenti NON richiede propedeucità esplicita. Si possono quindi inserire Analisi 1 e Analisi 2 nello stesso piano e superare prima la 2 della 1.
+
+\section{Orario delle lezioni}
+
+\subsection{Quando escono gli orari delle lezioni ?}
+
+Indicativamente periodo di fine agosto inizi di settembre.
+
+\subsection{Come vedo l'orario ?}
+
+Per poter visualizzare l'orario è necessario accedere alla PolimiAPP e andare sulla sezione "Calendario" o Agenda, non ricordo, oppure tramite "Servizi Online" -> "Orario lezioni". Ma se state cercando di capire se l'orario può essere uscito allora c'è un piccolo trucchetto, infatti andando su \href{https://onlineservices.polimi.it/manifesti/manifesti/controller/ManifestoPublic.do?evn\_DEFAULT=evento\&lang=IT}{Manifesto degli studi polimi}
+
+\begin{itemize}
+  \item Andare su "Orario Personalizzato" sulla colonna di sinistra e cliccare "Abilita";
+  \item Inserire il proprio "Cognome e Nome" questo serve per assegnare lo scaglione corretto;
+  \item Cliccate su "Procedi sulla composizione del tuo orario";
+  \item Selezionare la propria scuola di appartenenza (Ingegneria Industriale e dell'Informazione se un corso di ingegneria che non sia Civile o delle Costruzioni) e il proprio corso di laurea, assicurarsi di aver messo l'anno accademico corrente "anno\_attuale/anno\_successivo";
+  \item In basso apparirà la tabella riguardante il primo anno del vostro corso di laurea e potrete notare il simbolo di un orologio con un "+" verde, cliccate su tutti quegli insegnamenti, solo quelli del primo anno;
+  \item Cliccate poi su "Visualizza orario" presente sulla colonna di sinistra sotto "Orario personalizzato";
+  \item Qui potrete visualizzare in anteprima l'orario, una volta pubblicato in maniera ufficiosa.
+\end{itemize}
+
+\subsection{Cos'è uno scaglione ?}
+
+Lo scaglione è la maniera di divisione di un insegnamento, questo in fatti viene diviso in scaglioni, la divisione viene fatta per cognomi.
+
+Per poter vedere il proprio scaglione di riferimento basterà aspettare l'uscità dei gruppi degli scaglioni, a quel punto vi basterà conoscere il proprio cognome (facile) e l'alfabeto (qui è dove molti cadono).
+
+Se siete impazienti invece vi basterà seguire la procedura sopra elencata e al posto di cliccare sul "+" verde vi basterà cliccare sul nome di un qualsiasi insegnamento del primo anno e potrete vedere il "+" verde affianco al vostro scaglione.
+
+\textbf{ATTENZIONE}: È possibile che gli scaglioni vengano cambianti poco prima dell'inizio delle lezioni, controllate sempre l'orario.
+
+\subsection{Mi sembra ingiusto che io abbia tutta la settimana con le lezioni ma il mio amico dell'altro scaglione abbia il giorno libero, posso cambiare scaglione ?}
+
+NO non puoi cambiare scaglione.
+
+\subsection{Come cambiare scaglione.}
+
+Il cambio di scaglione può essere richiesto solo per motivi gravi e seri, è molto raro che venga concesso.
+
+\subsection{Posso mettere l'orario su Google Calendar ?}
+
+Si, è possibile mettere l'orario su Google Calendar; basterà infatti andare su polimi app, andare sulla sezione dedicata all'orario e cliccare in alto a destra il simbolo con una freccia verso l'alto e cliccare su "Copia link iCal" andate poi tramite pagina web e modalità Desktop sulla pagina del vostro calendario preferito e cercate "imposta tramita ical" o "importa calendario", infine incollate il link e cliccate su importa.
+
+\subsection{Quali sono le fasce orarie di lezione ?}
+
+Le lezioni sono sempre nella fascia 8 - 20, oltre non vanno.
+
+\subsection{Cosa sono le squadre ?}
+
+Le squadre sono il modo di dividere uno scaglione in sotto-scaglioni, infatti per alcune esercitazioni sarete divisi in "Squadra 1" -> \texttt{codice\_persona\_dispari} e "Squadra 2" -> \texttt{codice\_persona\_pari}.
+
+\subsection{Ho due lezioni allo stesso orario, come faccio ?}
+
+Controlla bene che non siano esercitazioni divise in squadre, queste infatti si svolgono in stesso orario ma aule diverse.
+
+Qualora questo non fosse il caso, rivolgiti ai tuoi rappresentanti: loro sapranno cosa fare e chi contattare per risolvere.
+
+NB: qualora siano insegnamenti di anni diversi o insegnamenti opzionali a coincidere non c’è nulla che tu possa fare
+
+\subsection{Le lezioni hanno frequenza obbligatoria ?}
+
+Dipende dal singolo insegnamento.
+
+Nella maggior parte degli insegnamenti di ingegneria la frequenza NON è obbligatoria.
+
+\subsection{Posso seguire il prof di un altro scaglione ?}
+
+Si, puoi ma attento infatti l'esame può differire da uno scaglione all'altro.
+
+\section{Precorsi e corsi di ripasso}
+
+\subsection{Cosa sono i precorsi / corsi di ripasso?}
+
+Sono corsi proposti dal Politecnico tenuti da docenti (non studenti) prima dell’inizio delle lezioni.
+
+Sono erogati solo di fisica e matematica.
+
+\subsection{Come ci si iscrive ai corsi di ripasso di matematica e fisica?}
+
+Prima dell’inizio del corso viene mandato un form per iscriversi.
+
+\subsection{Arriva una mail di conferma dopo l'iscrizione ai corsi di ripasso?}
+
+No
+
+\subsection{Ci si può iscrivere e poi non andare sempre, o è obbligatoria la presenza continuativa?}
+
+Non è obbligatoria la presenza, ti autogestisci
+
+\subsection{Cosa sono i MOOCs di Polimi Open Knowledge (POK)?}
+
+Sono corsi mirati su uno specifico argomento, al completamento viene rilasciato un badge che ne certifica le competenze.
+
+\subsubsection{Vanno fatti prima dei precorsi?}
+
+Sono paralleli; matematica e fisica coprono gli stessi argomenti.
+
+È consigliato farli prima o comunque rinfrescarsi l’argomento specifico prima della lezione così da essere più sul pezzo.
+
+\subsection{A chi conviene fare i precorsi ?}
+
+A tutti in generale, ma mirato per gli istituti con parte matematico-scientifica indebolita.
+
+\section{Lezione 0}
+
+\subsection{Cos'è ?}
+
+È un giro al politecnico prima delle lezioni vere e proprie, vengono fatti incontri con molti organi di rappresentanza e avrete la possibilità di assistere alla presentazione ufficiale del vostro corso di studi in cui potrete conoscervi tra voi e conoscere i vostri rappresentanti.
+
+\subsection{Serve ?}
+
+Si, molto utile per ambientarsi e iniziare a conoscervi.
+
+\subsection{È obbligatoria ?}
+
+No.
+
+\subsection{Cos'è il corso "Imparare ad Imparare" ?}
+
+È un corso POK erogato dal poli, i dettagli sono presenti in questo \href{https://www.pok.polimi.it/course/view.php?id=270}{link}. N.B. il corso è facoltativo.
+
+\subsection{Cos'è il tutorato per le matricole ?}
+
+Tutorato gratuito svolto da docenti o esercitatori del Polimi.
+
+\subsection{Cos'è il Welcome Desk ?}
+
+Sono i banchi in rettorato o per il campus che ti danno la mappa del campus e info se le chiedi.
+
+\subsection{Bisogna iscriversi per partecipare alla lezione zero ?}
+
+No, ma per alcune attività è possibile.
+
+\subsection{Ci sono eventi simili nei campus territoriali (Cremona, Lecco, Piacenza, Mantova)?}
+
+A Cremona c’è una lezione zero in cui viene presentato il campus e la vita universitaria. È il primo giorno di lezione.
+
+Viene poi aggiunto un welcome day solo per i gestionali più avanti (circa una settimana dopo)
+
+\section{Calendario accademico}
+
+\subsection{Com'è suddiviso l'anno accademico ?}
+
+L'anno accademico è suddiviso in 2 categorie principali:
+
+\begin{itemize}
+  \item Sessione delle lezioni
+  \item Sessione d'esame
+\end{itemize}
+
+Questi sono suddivisi e definiti nel \href{https://www.polimi.it/studenti/calendari-e-scadenze}{calendario accademico}, sono presenti anche sotto categorie come la sessione dei parziali e le sessioni di laurea.
+
+\subsection{Come funzionano gli appelli d'esame}
+
+Gli appelli d'esame sono il mezzo tramite il quale si verificano le conoscenze apprese durante il semestre di lezioni, esistono 2 tipi di appelli: appelli d'esame totali e prove in itinere.
+
+\begin{itemize}
+  \item Appelli d'esame totale: si svolgono nelle sessione d'esame invernali, estive e straordinarie; rispettivamente Gennaio e Febbraio, Giugno e Luglio, Settembre. Sono prove che comprendono tutti gli argomenti dell'insegnamento.
+  \item Prove in itinere: vengono svolte a Ottobre/Novembre e ad Aprile. Sono prove che comprendono solo una porzione degli argomenti dell'insegnamento.
+\end{itemize}
+
+Ricordiamo che l'iscrizione agli appelli e alle prove in itinere sono obbligatori e la NON iscrizione o l'iscrizione oltre la scadenza NON garantiscono di poter svolgere la prova, sarà infatti facoltà del docente di decidere ciò.
+
+\subsection{Come mi iscrivo all'appello ?}
+
+Tramite polimi APP o Servizi Online, è possibile iscriversi agli appelli una volta aperta la finestra di iscrizione, tramite la voce "Iscrizione agli esami"
+
+\subsection{Il professore non ha fatto uscire il voto, posso iscrivermi all'appello successivo ?}
+
+Si.
+
+\subsection{Ho passato l'esame con un voto che mi soddisfa, come lo accetto ?}
+
+Non devi fare nulla, infatti i voti al politecnico si considerano accettati implicitamente e bisogna solo esplicitarne la volontà di rifiutarli. Attendete la scadenza della finestra di pubblicazione e poco dopo infatti vi verrà registrato in carriera il voto.
+
+\subsection{Mi sono dimenticato di rifiutare un voto e ora mi è stato verbalizzato, posso fare qualcosa ?}
+
+No, ci spiace una volta verbalizzato un voto NON più possibile modificarlo o rifiutarlo. STATE ATTENTI.
+
+\subsection{Ci sono lezioni durante le lauree?}
+
+Dipende, dal prof se la fa online.
+
+E dipende se le lauree sono nel tuo polo, o se l'insegnamento è erogato in un polo in cui ci sono le lauree.
+
+E dipende anche se sono lauree magistrali, o se è un insegnamento di un corso magistrale.
+
+Chiedere conferme al prof, solitamente se rilasciano il calendario lo specificano come intendono fare.
+
+\section{Come comunicare con i docenti}
+
+La comunicazione con i docenti avviene tramite mail, ogni docente ha una mail standard che viene presentata ad inizio lezione ed è sempre di questo standard: nome.cognome@polimi.it
+
+\subsection{Se scrivo a un docente mi mangia ?}
+
+No, i docenti non hanno nella dieta "Studenti che mi scrivono mail" quindi non abbiate timore di comunicare con un docente. Piccola regola magna, scrivete sempre dal Lunedì al Venerdì dalle 8 alle 19, rompete queste regole solo in caso di emergenza.
+
+\section{OFA di Inglese}
+
+L'OFA di inglese viene assegnato se duante il test d'ingresso non si registra un punteggio pari o superiore a $24/30$.
+
+\subsection{Come si recupera ?}
+
+\begin{itemize}
+  \item Ridando il test d'inglese, prenotabile a questo \href{https://www.polimi.it/studenti/requisiti-linguistici/enti-esterni}{link}
+  \item Consegnando una certificazione valida di uno di questi enti: \href{https://www.polimi.it/studenti/requisiti-linguistici/studenti-dei-corsi-di-laurea-triennale-in-italiano}{link ai certificati}
+\end{itemize}
+
+\subsection{C'è una scadenza ?}
+
+Si, l'anno accademico. Se non si recupera entro la fine dell'anno accademico infatti non sarà possibile iscriversi al secondo anno.
+
+\subsection{Esistino corsi per recuperare l'OFA ?}
+
+Si il politecnico offre corsi che aiutano al recupero presenti a questi link: \href{https://www.polimi.it/formazione/corsi-di-lingua}{Link corsi} e \href{https://www.polimi.it/formazione/moocs-polimi-open-knowledge}{Link MOOCS}.
+
+\section{Residenze e Alloggi}
+
+\subsection{Come si prenota una stanza nelle residenze polimi ?}
+
+\href{https://www.residenze.polimi.it/tariffe/}{Link con tutte le info}.
+
+\subsection{Quando escono le graduatorie per i posti letto?}
+
+Le date sono indicate nella pagina apposita del polimi \href{https://www.residenze.polimi.it/}{link}
+
+\subsection{Quali sono le residenze universitarie più consigliate vicino a Leonardo/Bovisa?}
+
+\href{https://www.residenze.polimi.it}{Link con tutte le info}.
+
+\subsection{Quanto costa mediamente una stanza singola vicino al campus Leonardo?}
+
+In media intorno agli 500/800 € al mese.
+
+\subsection{Quali zone di Milano sono consigliate/sicure per trovare casa?}
+
+Città studi, Lambrate, Loreto e Argonne.
+
+\subsection{C'è un gruppo per cercare coinquilini o appartamenti a Milano?}
+
+Si è a questo \href{https://t.me/joinchat/jmpNOitFNFw1MzJk}{link}
+
+\subsection{Come si ottiene il riconoscimento dello status di fuorisede?}
+
+Dal sito del poli "Per essere considerato ‘fuori sede’ - e ottenere i benefici nella misura prevista dal Bando per tale status - lo studente deve esplicitamente chiederlo, dimostrando di aver preso alloggio a titolo oneroso nel Comune dove ha sede il corso frequentato, o nelle aree circostanti, per un periodo non inferiore a 10 mesi continuativi"
+
+Tramite domanda per la DSU.
+
+\subsection{Per la borsa di studio da fuori sede serve il contratto registrato?}
+
+Si.
+
+\section{Trasporti}
+
+\subsection{Esistono agevolazioni per gli abbonamenti ATM per studenti del Polimi?}
+
+No, esiste l'agevolazione per gli Under26 di ATM.
+
+\subsection{Quanto costa l'abbonamento ATM? Ci sono sconti con ISEE?}
+
+Il costo dell'abbonamento dipende dalle zone di cui hai bisogno.
+
+No, non sono presenti sconti per ISEE bassi.
+
+\subsection{Conviene Bikemi o Lime per gli spostamenti in zona Città Studi?}
+
+È completamente soggettiva la cosa.
+
+\subsection{Ci sono agevolazioni Trenitalia/Frecciarossa per fuorisede?}
+
+Si, infatti il poli presenta uno sconto del 10\% per i freccia tramite registrazione con il bando qui presente \href{https://www.polimi.it/campus-e-servizi/convenzioni-e-agevolazioni/trenitalia}{bando}
+
+\section{Polimi APP e altri software}
+
+\subsection{Come si aggiunge la foto profilo nei Servizi Online / app Polimi?}
+
+\begin{itemize}
+  \item Servizi Online: Nella pagina principale troverai sulla colonna di sinistra i tuoi dati e un "Aggiorna i tuoi dati" cliccando si arriva a una pagina e sotto la tua foto cliccare su "Gestisci".
+  \item Polimi APP: cliccare in su "IO e il Polimi" e in alto a destra su "Servizi Online" e seguire la procedura sopra.
+\end{itemize}
+
+\subsection{Cos'è Webeep? Come si accede?}
+
+WeBeep è un portale Moodle sul quale verranno caricati tutti gli appunti, esercizi e temi d'esame dei vostri corsi.
+
+Per accedere basta andare su \href{https://webeep.polimi.it/login/index.php}{WeBeep.polimi.it} e accedere tramite credenziali polimi. Attenzione: ci mettono un pò ad abilitare tutti gli studenti.
+
+\subsection{Cos'è Polimi Open Knowledge (POK)? Come ci si registra?}
+
+Una una piattaforma di corsi online gratuiti chiamati MOOC (Massive Open Online Courses).
+
+Per iscriversi basta entrare sulla pagina e fare il login con le credenziali polimi, selezionare il corso che vi piace di più e iscriversi.
+
+\subsection{Come si accede a Microsoft 365 / Teams con le credenziali Polimi?}
+
+Prima dell’inizio delle lezioni (dopo l’immatricolazione) viene inviata la mail con l’indirizzo di posta.
+
+Bisognerà andare su un qualunque prodotto della suite microsoft, inserire la mail per accedere come se fosse un profilo normale per essere indirizzati sulla pagina di accesso dei servizi online.
+
+Si accede tramite loro.
+
+È possibile utilizzarli anche da browser.
+
+\subsection{Come vedo tutti i software offerti ?}
+
+Tutti i software offerto sono presenti in questa \href{https://www.software.polimi.it/studenti/}{pagina}
+
+\section{Biblioteca}
+
+\subsection{Si può prenotare un posto in biblioteca?}
+
+Si possono prenotare le stanze studio e le cabine con il computer.
+
+\subsection{Come si ritira e si prenota un libro ?}
+
+\subsection{La biblioteca è aperta il sabato?}
+
+Per gli orari di ogni biblioteca consigliamo di consultare la pagina ufficiale a questo \href{https://www.polimi.it/campus-e-servizi/biblioteche-e-archivi/biblioteche}{link}
+
+\section{Wi-Fi}
+
+È possibile configurare la rete Wi-Fi seguendo le istruzioni in questa \href{https://www.ict.polimi.it/wifi/connessione-permanente/}{pagina}
+
+\section{Vita in Campus}
+
+\subsection{Come funziona la mensa del Polimi? Quanto costa un pasto?}
+
+Cremona: La mensa non esiste ancora. Quella che diventerà prossimamente la mensa attualmente è un aula con due microonde, due friggitrici ad aria e un paio di tostapane.
+
+Leonardo: Ci sono due mense di fronte all'acquario, con costi compresi tra 7 euro e i 9 euro. Una mensa al 26 leggermente più economica.
+
+Tutti i bar e servizi ristorazione sono presenti a questo \href{https://www.polimi.it/campus-e-servizi/mense-e-bar}{link}
+
+\subsection{Ci sono buoni pasto o agevolazioni per mangiare?}
+
+Si, tramite DSU,  per ottenerli basta essere idonei alla borsa di studio, anche non beneficiari, anche senza borsa di studio si hanno lo stesso i buoni pasto.
+
+\subsection{Come funzionano gli armadietti? Vanno prenotati? Quanto sono disponibili?}
+
+Per la prenotazione degli armadietti tutti i dettagli sono presenti in questa \href{https://www.polimi.it/campus-e-servizi/assegnazione-armadietti}{pagina}
+
+\subsection{La palestra del Polimi (Giuriati) com'è? Quanto costa? È affollata ?}
+
+Il listino prezzi si trova in questa \href{https://www.sport.polimi.it/iscriviti-e-prenota/studenti-polimi}{pagina}
+
+\subsection{Dove si possono trovare libri usati o scambiare materiali?}
+
+È possibile trovare i libri a questo \href{https://t.me/joinchat/6nmuXXhAOr1mYTJk}{link}
+
+È possibile caricare o visualizzare materiali in questa \href{https://polinetwork.org/it/materials/}{pagina}
+
+\section{Cambio corso}
+
+\subsection{Se mi sono immatricolato a un corso di ripiego, posso passare al corso preferito l'anno prossimo?}
+
+Si, tutti i requisiti sono elencati in questa \href{https://www.polimi.it/studenti/casi-particolari/passaggi-ai-corsi-di-laurea-di-ingegneria-e-auic-ingegneria-edile-e-delle-costruzioni}{pagina}
+
+\subsection{Si può trasferire da una sede territoriale (Cremona, Lecco) a Milano Leonardo?}
+
+Si, è possibile.
+
+\section{Che cos'è il Manifesto degli Studi}
+
+Il manifesto degli studi è quell'elemento accademico che mostra gli esami che si svolgeranno o che è possibile svolgere in ogni CCS.
+
+\subsection{Perché mi dovrebbe interessare ?}
+
+Può interessarti perché è un modo per programmare e studiare gli esami che si dovranno svolgere in quel corso di laurea e possono essere utili da conoscere nel caso si volesse fare un passaggio di corso di laurea.
+
+\section{Come leggere il regolamento del corso di studi}
+
+Il regolamento del corso di studi è quel documento ufficiale in cui sono scritte tutte cose riguardati vincoli, obiettivi e struttura del corso di studi.
+
+\subsection{Cosa mi interessa ?}
+
+Ti interessa sapere i criteri e i requisiti di ammissione ai vari corsi di laurea magistrale e i vincoli da rispettare in Triennale e in Magistrale.
+
+\subsection{Dove trovo ciò che mi interessa ?}
+
+I regolamenti del CCS sono standardizzati e contengono tutte queste informazioni al capitolo relativo ai requisiti di ammissione. Per i vincoli consigliamo invece un bel CTRL + F "Vincoli" e leggersi tutte le voci.
+
+\subsection{Sono pigro e non ho voglia}
+
+Copia dell'URL e incollatelo su un chatbot specificando corso di arrivo e tutto ciò che volete sapere.
+
+È una procedura che non andrebbe fatta, e anzi bisognerebbe leggere almeno una volta il regolamento del corso di studi.
+
+\section{Come contattare i rapprentanti degli studenti}
+
+I metodi per contattare i rappresentanti degli studenti sono molteplici:
+
+\begin{enumerate}
+  \item Lezione Zero: una lezione che si svolge qualche giorno prima delle lezioni e che terranno i rappresentanti e il coordinatore del tuo corso di studi, consigliamo caldamente la partecipazione.
+  \item Mail dei rappresentanti, ogni rappresentante di ogni CCS ha una mail che li accomuna. Se hai bisogno di aiuto per un problema con l'università cerca la mail dei tuoi rappresentanti.
+\end{enumerate}
+
+\href{https://www.ingindinf.polimi.it/la-scuola/rappresentanti-degli-studenti}{Pagina con le mail dei rappresentanti della scuola 3I(Ingegneria Industriale e dell'Informazione)}
+
+\href{https://www.ingcat.polimi.it/la-scuola/rappresentanti-degli-studenti}{Pagina con le mail dei rappresentanti della scuola ICAT(Ingegneria Civile, Ambientale e Territoriale)}
+
+\href{https://www.design.polimi.it/la-scuola/rappresentanti-degli-studenti}{Pagina con le mail dei rappresentanti della scuola di Design}
+
+\href{https://www.auic.polimi.it/la-scuola/rappresentanti-degli-studenti}{Pagina con le mail dei rappresentanti della scuola AUIC (Architettura Urbanistica e Ingegneria delle Costruzioni)}
+
+\begin{enumerate}
+  \item Pagina instagram del tuo CCS: infatti molti rappresentanti degli studenti hanno un pagina instagram che aggiornano e usano per comunicazioni con i propri studenti, come: Novità, Eventi oppure per ricevere segnalazioni e chiedere feedback.
+\end{enumerate}
+
+Lista delle pagine instagram dei ccs:
+
+\begin{itemize}
+  \item CCS di Biomedica Triennale e Magistrale: \texttt{@ccsbio\_polimi}
+  \item CCS di Informatica e Computer Science: \texttt{@cse\_polimi}
+  \item CCS di Aereospaziale e Aereospace: \texttt{@aerostudents.polimi}
+\end{itemize}
+
+\begin{enumerate}
+  \item I gruppi whatsapp: infatti dentro i gruppi whatsapp tra gli admin si trovano alcuni rappresentanti degli studenti presenti e attenti per aiutarvi in caso di necessità. Quindi usateli per chiedere assistenza a loro direttamente.
+\end{enumerate}
+
+\section{Cosa sono le associazioni}
+
+Le associazioni studentesche sono gruppi di studenti che organizzano attività al di fuori delle lezioni: eventi, progetti tecnici, competizioni, iniziative culturali, networking con aziende, volontariato e momenti sociali. Sono ideali se si vuole staccare dalla solita vita universitaria e vivere appieno le opportunità del politecnico. È possibile vedere l'elenco delle associazioni del poli in questa \href{https://www.polimi.it/studenti/associazioni-degli-studenti}{pagina}
+
+\section{Come diventare admin di PoliNetwork}
+
+Per diventare admin di politework basta contattare un qualsiasi admin dei gruppi gestiti da questa associazione. Verrete poi contattati dal compartimento HR dell'associazione che vi proporrà un colloquio conoscitivo prima di farvi diventare admin a tutti gli effetti.
+
+\section{Canali di comunicazione di PoliNetwork}
+
+Instagram: \href{https://www.instagram.com/polinetwork\_/}{\texttt{@polinetwork}}
+
+\href{https://polinetwork.org}{Sito web}
+
+\end{document}
