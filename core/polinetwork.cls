@@ -271,10 +271,10 @@
 % Footer on all pages
 \newcommand{\pnFooterIdentity}{%
   \begin{tabular}[c]{@{}l@{}}
-    \raisebox{-0.5\height}{\pnInsertLogo[0.40cm]}%
-    \hspace{4.5pt}%
-    \raisebox{-0.5\height}{{\fontsize{8.2pt}{9.2pt}\selectfont\poppinsmedium\color{pn-primary}PoliNetwork}}\\[-1.7pt]
-    {\fontsize{6.6pt}{7.6pt}\selectfont\poppinsfont\color{pn-text}%
+    \raisebox{-0.5\height}{\pnInsertLogo[0.52cm]}%
+    \hspace{5.5pt}%
+    \raisebox{-0.5\height}{{\fontsize{10.5pt}{11.5pt}\selectfont\poppinsmedium\color{pn-primary}PoliNetwork}}\\[-1.2pt]
+    {\fontsize{7.1pt}{8.1pt}\selectfont\poppinsfont\color{pn-text}%
       \href{mailto:direttivo@polinetwork.org}{\textcolor{pn-text}{direttivo@polinetwork.org}}}
   \end{tabular}%
 }
