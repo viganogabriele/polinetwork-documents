@@ -64,6 +64,9 @@ help: ## Mostra questo aiuto
 privacy-recruitment: ## Privacy policy per il recruitment
 	$(call compile,documents,informativa-privacy-recruitment)
 
+guida: # Guida della matricola
+	$(call compile,documents,guida-della-matricola)
+
 pubblica: polinetwork # alias
 polinetwork: ## Cos'è PoliNetwork
 	$(call compile,documents,PoliNetwork)
